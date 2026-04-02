@@ -22,8 +22,7 @@ RUN apt-get clean
 # All files copied at build stage to /pi-gen
 INSTALL dist/kolibri_*.deb /tmp/kolibri.deb
 
-RUN dpkg -i /tmp/kolibri.deb || true
-RUN apt-get install -f -y
+RUN apt-get install -y /tmp/kolibri.deb
 RUN rm /tmp/kolibri.deb
 
 RUN ls -la /home/pi/.kolibri/options.ini
