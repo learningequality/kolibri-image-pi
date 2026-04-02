@@ -3,7 +3,7 @@
 DIST_DIR := dist
 
 SOURCE_FILE = images/source.xz
-SOURCE_URL = https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2025-05-13/2025-05-13-raspios-bookworm-arm64-lite.img.xz
+SOURCE_URL = https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2025-12-04/2025-12-04-raspios-trixie-arm64-lite.img.xz
 
 clean: clean-deb clean-images clean-tools
 	@echo "Deleted all build targets"
@@ -59,7 +59,7 @@ images: install-dependencies
 
 zipfile: images
 # Get the version based on the debian file name kolibri_<version>-Xubuntu1_all.deb
-	$(eval VERSION=$(shell ls ${DIST_DIR} | grep kolibri | sed -r 's/kolibri_(.*)-[0-9]+ubuntu1_all.deb/\1/'))
+	$(eval VERSION=$(shell ls ${DIST_DIR} | grep 'kolibri_' | sed -r 's/kolibri_(.*)-[0-9]+ubuntu1_all.deb/\1/'))
 # Rename the image file to include the version
 	mv images/Kolibri.img images/kolibri-pi-image-$(VERSION).img
 # Zip the image file
