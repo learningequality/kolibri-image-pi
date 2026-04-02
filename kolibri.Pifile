@@ -20,7 +20,7 @@ echo "kolibri-server kolibri-server/zip_content_port select 81" | debconf-set-se
 RUN apt-get clean
 
 # All files copied at build stage to /pi-gen
-INSTALL dist/kolibri_*.deb /tmp/kolibri.deb
+INSTALL dist/*.deb /tmp/kolibri.deb
 
 RUN apt-get install -y /tmp/kolibri.deb
 RUN rm /tmp/kolibri.deb
