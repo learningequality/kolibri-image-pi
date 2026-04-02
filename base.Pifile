@@ -6,9 +6,14 @@ ENV DEBIAN_FRONTEND noninteractive
 
 user=pi
 
+# Enable SSH
+RUN touch /boot/ssh
+
 hostname=kolibri
 
-RUN sed -i "s/raspberrypi/${hostname}/g" /etc/hostname /etc/hosts
+# Write hostname to /etc/hostname and /etc/hosts
+RUN sed -i "s/raspberrypi/${hostname}/g" /etc/hostname
+RUN sed -i "s/raspberrypi/${hostname}/g" /etc/hosts
 
 # Debian 13+ DEB822-format PPAs
 # See: https://kolibri.readthedocs.io/en/latest/install/ubuntu-debian.html#install-from-ppa-repository
