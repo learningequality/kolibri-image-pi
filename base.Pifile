@@ -18,9 +18,8 @@ RUN sed -i "s/raspberrypi/${hostname}/g" /etc/hosts
 # Debian 13+ DEB822-format PPAs
 # See: https://kolibri.readthedocs.io/en/latest/install/ubuntu-debian.html#install-from-ppa-repository
 RUN mkdir -p /etc/apt/keyrings
-INSTALL 644 files/kolibri.asc /etc/apt/keyrings/kolibri.asc
+INSTALL 644 files/learningequality.asc /etc/apt/keyrings/learningequality.asc
 INSTALL 644 files/learningequality-kolibri.sources /etc/apt/sources.list.d/
-INSTALL 644 files/kolibri-server.asc /etc/apt/keyrings/kolibri-server.asc
 INSTALL 644 files/learningequality-kolibri-server.sources /etc/apt/sources.list.d/
 
 RUN mkdir -p "/home/${user}/.kolibri"

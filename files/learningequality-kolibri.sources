@@ -2,4 +2,4 @@ Types: deb
 URIs: https://learningequality.github.io/kolibri-installer-debian/
 Suites: stable
 Components: main
-Signed-By: /etc/apt/keyrings/kolibri.asc
+Signed-By: /etc/apt/keyrings/learningequality.asc
