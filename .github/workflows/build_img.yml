@@ -37,9 +37,9 @@ jobs:
       run: |
         echo "Must specify only one reference for the deb file to build the image with."
         exit 1
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
       if: ${{ !inputs.ref }}
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
       if: ${{ inputs.ref }}
       with:
         repository: learningequality/kolibri-image-pi
@@ -54,17 +54,17 @@ jobs:
         name: ${{ inputs.deb-file-name }}
         path: dist
     - name: Cache source image
-      uses: actions/cache@v5
+      uses: actions/cache@v6
       with:
         path: 'images/source.img'
         key: ${{ runner.OS }}-source-v3-${{ hashFiles('Makefile') }}
     - name: Cache base image
-      uses: actions/cache@v5
+      uses: actions/cache@v6
       with:
         path: 'images/base.img'
         key: ${{ runner.OS }}-base-v3-${{ hashFiles('base.Pifile', 'files/*') }}
     - name: Cache pimod
-      uses: actions/cache@v5
+      uses: actions/cache@v6
       with:
         path: pimod
         key: ${{ runner.OS }}-pimod-v3-${{ hashFiles('Makefile') }}
